@@ -8,25 +8,25 @@
 
 #define SERIAL_BAUD    115200
 
-const char* ssid = "Sandiego";
-const char* password = "0988807067";
+const char* ssid = "Kent";
+const char* password = "12345abc";
 
-const char* clientId = "RockySwitch2";
-const char* mqttServer = "192.168.1.110";
+const char* clientId = "RockySwitch1";
+const char* mqttServer = "broker.hivemq.com";
 const char* mqttUsername = "<MQTT_BROKER_USERNAME>";
 const char* mqttPassword = "<MQTT_BROKER_PASSWORD>";
 const char* relayStatusTopics[] = {
-  "/Livingroom/Light1/Status", 
-  "/Livingroom/Light2/Status",
-  "/Livingroom/Light3/Status",
-  "/Livingroom/Light4/Status"
+  "/Room1/Light1/Status", 
+  "/Room1/Light2/Status",
+  "/Room1/Light3/Status",
+  "/Room1/Light4/Status"
 }; // should change to something unique
 
 const char* relayCmdTopics[] = {
-  "/Livingroom/Light1/Command", 
-  "/Livingroom/Light2/Command",
-  "/Livingroom/Light3/Command",
-  "/Livingroom/Light4/Command"
+  "/Room1/Light1/Command", 
+  "/Room1/Light2/Command",
+  "/Room1/Light3/Command",
+  "/Room1/Light4/Command"
 }; // should change to something unique
 
 WiFiClient espClient;
@@ -126,7 +126,7 @@ void loop() {
   {
     byte reading = digitalRead(buttonPins[i]); // Read the state of the switch
 
-    if( reading == LOW)                 
+    if( reading == HIGH)                 
     {
       relayStatus[i] = 1 - relayStatus[i];
       digitalWrite(relayPins[i], 1 - relayStatus[i]);
