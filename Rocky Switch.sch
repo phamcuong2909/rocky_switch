@@ -5674,11 +5674,11 @@ Source: http://www.osram.convergy.de/</description>
 <part name="AC" library="con-wago-508" deviceset="W237-02P" device=""/>
 <part name="U$1" library="My Eagle Lib" deviceset="POWER_SUPPLY_220VAC_5V" device=""/>
 <part name="U$10" library="My Eagle Lib" deviceset="WEMOS" device="LOCKED"/>
-<part name="R3" library="rcl" deviceset="R-US_" device="R0805" value="180"/>
+<part name="R3" library="rcl" deviceset="R-US_" device="0204/7" value="180"/>
 <part name="R1" library="rcl" deviceset="R-US_" device="R0805" value="330"/>
-<part name="R6" library="rcl" deviceset="R-US_" device="R0805" value="180"/>
+<part name="R6" library="rcl" deviceset="R-US_" device="0204/7" value="180"/>
 <part name="R4" library="rcl" deviceset="R-US_" device="R0805" value="330"/>
-<part name="R9" library="rcl" deviceset="R-US_" device="R0805" value="180"/>
+<part name="R9" library="rcl" deviceset="R-US_" device="0204/7" value="180"/>
 <part name="R7" library="rcl" deviceset="R-US_" device="R0805" value="330"/>
 <part name="D1" library="adafruit" deviceset="LED" device="CHIP-LED0805" value="Relay1"/>
 <part name="D2" library="adafruit" deviceset="LED" device="CHIP-LED0805" value="Relay2"/>
@@ -5686,7 +5686,7 @@ Source: http://www.osram.convergy.de/</description>
 <part name="R2" library="rcl" deviceset="R-US_" device="R0805" value="330"/>
 <part name="R5" library="rcl" deviceset="R-US_" device="R0805" value="330"/>
 <part name="R8" library="rcl" deviceset="R-US_" device="R0805" value="330"/>
-<part name="R12" library="rcl" deviceset="R-US_" device="R0805" value="180"/>
+<part name="R12" library="rcl" deviceset="R-US_" device="0204/7" value="180"/>
 <part name="R10" library="rcl" deviceset="R-US_" device="R0805" value="330"/>
 <part name="D4" library="adafruit" deviceset="LED" device="CHIP-LED0805" value="Relay4"/>
 <part name="R11" library="rcl" deviceset="R-US_" device="R0805" value="330"/>

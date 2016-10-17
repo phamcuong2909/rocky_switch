@@ -8,13 +8,18 @@
 
 #define SERIAL_BAUD    115200
 
-const char* ssid = "Kent";
-const char* password = "12345abc";
+const char* ssid = "your_wifi";
+const char* password = "your_wifi_password";
 
 const char* clientId = "RockySwitch1";
 const char* mqttServer = "broker.hivemq.com";
+const int mqttPort = 1883;
+// Username và password để kết nối đến MQTT server nếu server có
+// bật chế độ xác thực trên MQTT server
+// Nếu không dùng thì cứ để vậy
 const char* mqttUsername = "<MQTT_BROKER_USERNAME>";
 const char* mqttPassword = "<MQTT_BROKER_PASSWORD>";
+
 const char* relayStatusTopics[] = {
   "/Room1/Light1/Status", 
   "/Room1/Light2/Status",
@@ -42,7 +47,6 @@ byte relayStatus[4] = {0, 0, 0, 0};
 // used for button debouncing
 const byte debounceDelay = 100; // Debounce time;
 unsigned long lastDebounceTime = 0; //The last time button was toggled
-boolean buttonPressed = false;
 byte currentButtonStatus[4];
 byte lastButtonStatus[4];
 
@@ -62,59 +66,16 @@ void setup() {
 
   setup_wifi();
 
-  /*
-  // Port defaults to 8266
-  // ArduinoOTA.setPort(8266);
-
-  // Hostname defaults to esp8266-[ChipID]
-  ArduinoOTA.setHostname("Bedroom1Switch");
-
-  // No authentication by default
-  // ArduinoOTA.setPassword((const char *)"123");
-
-  ArduinoOTA.onStart([]() {
-    Serial.println("Start");
-  });
-  ArduinoOTA.onEnd([]() {
-    Serial.println("\nEnd");
-    ESP.restart();
-  });
-  ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {
-    Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
-  });
-  ArduinoOTA.onError([](ota_error_t error) {
-    Serial.printf("Error[%u]: ", error);
-    if (error == OTA_AUTH_ERROR) Serial.println("Auth Failed");
-    else if (error == OTA_BEGIN_ERROR) Serial.println("Begin Failed");
-    else if (error == OTA_CONNECT_ERROR) Serial.println("Connect Failed");
-    else if (error == OTA_RECEIVE_ERROR) Serial.println("Receive Failed");
-    else if (error == OTA_END_ERROR) Serial.println("End Failed");
-  });
-  ArduinoOTA.begin();
-  */
-
-  client.setServer(mqttServer, 1883);
+  client.setServer(mqttServer, mqttPort);
   client.setCallback(onMessageReceived);
   reconnect();
 
   // Waiting for connection ready before sending update
-  //delay(500); 
-  //sendStatusUpdate();
+  delay(500); 
+  sendStatusUpdate();
 }
 
 void loop() {
-  //ArduinoOTA.handle();
-  /*
-  if (!client.connected()) {
-    unsigned long currentMillis = millis();
-    Serial.print("Not connected: "); Serial.println(currentMillis);
-    if (currentMillis - lastReconnectTime >= reconnectInterval) {
-      lastReconnectTime = currentMillis;
-      Serial.println("Need to reconnect");
-      //reconnect();
-    }
-  }
-  */
 
   if (client.connected()) {
     client.loop();
@@ -130,50 +91,14 @@ void loop() {
     {
       relayStatus[i] = 1 - relayStatus[i];
       digitalWrite(relayPins[i], 1 - relayStatus[i]);
-      buttonPressed = true;
-      //Print out the value of the relay status
       Serial.print("Changed relay "); Serial.print(i); Serial.print(" status to "); Serial.println(relayStatus[i]);
-      delay(300);
-      if (buttonPins[i] == D0) {
-        pinMode(D0, OUTPUT);
-        digitalWrite(D0, 1);
-        pinMode(D0, INPUT);
-      }
+      sendSingleStatusUpdate(i);
     }
-
-    /*
-
-    // If the switch changed, due to noise or pressing:
-    if( reading != lastButtonStatus[i])                   
-    {
-      lastDebounceTime = millis(); // Reset debouncing timer
-    }
-    
-    if ((millis() - lastDebounceTime) > debounceDelay)      
-    {
-      // Check button is clicked, change status of relay
-      if( reading == HIGH)                 
-      {
-        Serial.println("AAAAAAAAAAAAAAAAAAAAAAAAAAA"); 
-        relayStatus[i] = 1 - relayStatus[i];
-        digitalWrite(relayPins[i], 1 - relayStatus[i]);
-        buttonPressed = true;
-        //Print out the value of the relay status
-        Serial.print("Changed relay "); Serial.print(i); Serial.print(" status to "); Serial.println(relayStatus[i]);
-      }
-    }
-    */
     lastButtonStatus[i] = reading;
-  }
-
-  if (buttonPressed) {
-    sendStatusUpdate();
-    buttonPressed = false;
   }
 }
 
 void setup_wifi() {
-  // We start by connecting to a WiFi network
   Serial.print("Connecting to "); Serial.println(ssid);
 
   WiFi.begin(ssid, password);
@@ -214,7 +139,6 @@ void onMessageReceived(char* topic, byte* payload, unsigned int length) {
       break;
     }
   }
-  //sendStatusUpdate();
 }
 
 
@@ -252,3 +176,11 @@ void sendStatusUpdate()
   }
 }
 
+
+void sendSingleStatusUpdate(int relayNo)
+{  
+  Serial.println("Sending status update to broker");
+  char status [4];
+  sprintf (status, "%d", relayStatus[relayNo]);
+  client.publish(relayStatusTopics[relayNo], status);
+}
