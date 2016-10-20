@@ -8,8 +8,8 @@
 
 #define SERIAL_BAUD    115200
 
-const char* ssid = "your_wifi";
-const char* password = "your_wifi_password";
+const char* ssid = "Sandiego";
+const char* password = "0988807067";
 
 const char* clientId = "RockySwitch1";
 const char* mqttServer = "broker.hivemq.com";
@@ -64,38 +64,62 @@ void setup() {
     lastButtonStatus[i] = 0;
   }
 
-  setup_wifi();
+  //pinMode(D0, OUTPUT);
 
-  client.setServer(mqttServer, mqttPort);
-  client.setCallback(onMessageReceived);
-  reconnect();
+  //setup_wifi();
+
+  //client.setServer(mqttServer, mqttPort);
+  //client.setCallback(onMessageReceived);
+  //reconnect();
 
   // Waiting for connection ready before sending update
-  delay(500); 
-  sendStatusUpdate();
+  //delay(500); 
+  //sendStatusUpdate();
 }
 
 void loop() {
 
-  if (client.connected()) {
-    client.loop();
-  }
+  //if (client.connected()) {
+  //  client.loop();
+  //}
 
   // Read input pins to check button is clicked or not
   boolean buttonPressed = false;
   for (byte i=0; i<sizeof(buttonPins); i++)
   {
-    byte reading = digitalRead(buttonPins[i]); // Read the state of the switch
+    byte reading;
+    /*
+    if (i == 0) {
+      digitalWrite(D0, 0);
+      pinMode(D0, INPUT);
+      reading = digitalRead(D0);
+      pinMode(D0, OUTPUT);
+      digitalWrite(D0, 0);
+      Serial.println(reading);
+    } else {
+      reading = digitalRead(buttonPins[i]); // Read the state of the switch
+    }*/
+
+    reading = digitalRead(buttonPins[i]); // Read the state of the switch
 
     if( reading == HIGH)                 
     {
       relayStatus[i] = 1 - relayStatus[i];
       digitalWrite(relayPins[i], 1 - relayStatus[i]);
       Serial.print("Changed relay "); Serial.print(i); Serial.print(" status to "); Serial.println(relayStatus[i]);
-      sendSingleStatusUpdate(i);
+      //sendSingleStatusUpdate(i);
+
+      if (i == 0) {
+        pinMode(D0, OUTPUT);
+        digitalWrite(D0, 0);
+        pinMode(D0, INPUT);
+      }
+      delay(500);
     }
-    lastButtonStatus[i] = reading;
+    
+    lastButtonStatus[i] = reading;    
   }
+  
 }
 
 void setup_wifi() {
