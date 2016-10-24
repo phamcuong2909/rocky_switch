@@ -6281,28 +6281,28 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </classes>
 <parts>
 <part name="JP1" library="pinhead" deviceset="PINHD-2X5" device=""/>
-<part name="C1" library="rcl" deviceset="C-EU" device="C0805K" value="30pF"/>
+<part name="C1" library="rcl" deviceset="C-EU" device="C0805K" value="10pF"/>
 <part name="U$1" library="My Eagle Lib" deviceset="TTP223B" device=""/>
 <part name="GND1" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND3" library="SparkFun" deviceset="GND" device=""/>
 <part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="VDD" device=""/>
 <part name="C2" library="rcl" deviceset="C-EU" device="C0805K" value="0.1uF"/>
 <part name="GND2" library="SparkFun" deviceset="GND" device=""/>
-<part name="C3" library="rcl" deviceset="C-EU" device="C0805K" value="30pF"/>
+<part name="C3" library="rcl" deviceset="C-EU" device="C0805K" value="10pF"/>
 <part name="U$2" library="My Eagle Lib" deviceset="TTP223B" device=""/>
 <part name="GND5" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND6" library="SparkFun" deviceset="GND" device=""/>
 <part name="SUPPLY2" library="SparkFun-Aesthetics" deviceset="VDD" device=""/>
 <part name="C4" library="rcl" deviceset="C-EU" device="C0805K" value="0.1uF"/>
 <part name="GND7" library="SparkFun" deviceset="GND" device=""/>
-<part name="C5" library="rcl" deviceset="C-EU" device="C0805K" value="30pF"/>
+<part name="C5" library="rcl" deviceset="C-EU" device="C0805K" value="10pF"/>
 <part name="U$3" library="My Eagle Lib" deviceset="TTP223B" device=""/>
 <part name="GND9" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND10" library="SparkFun" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="SparkFun-Aesthetics" deviceset="VDD" device=""/>
 <part name="C6" library="rcl" deviceset="C-EU" device="C0805K" value="0.1uF"/>
 <part name="GND11" library="SparkFun" deviceset="GND" device=""/>
-<part name="C7" library="rcl" deviceset="C-EU" device="C0805K" value="30pF"/>
+<part name="C7" library="rcl" deviceset="C-EU" device="C0805K" value="10pF"/>
 <part name="U$4" library="My Eagle Lib" deviceset="TTP223B" device=""/>
 <part name="GND13" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND14" library="SparkFun" deviceset="GND" device=""/>
@@ -6321,51 +6321,51 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <sheets>
 <sheet>
 <plain>
-<wire x1="-25.4" y1="144.78" x2="213.36" y2="144.78" width="0.1524" layer="97"/>
-<wire x1="213.36" y1="144.78" x2="213.36" y2="-38.1" width="0.1524" layer="97"/>
-<wire x1="213.36" y1="-38.1" x2="-25.4" y2="-38.1" width="0.1524" layer="97"/>
+<wire x1="-25.4" y1="144.78" x2="203.2" y2="144.78" width="0.1524" layer="97"/>
+<wire x1="203.2" y1="144.78" x2="203.2" y2="-38.1" width="0.1524" layer="97"/>
+<wire x1="203.2" y1="-38.1" x2="-25.4" y2="-38.1" width="0.1524" layer="97"/>
 <wire x1="-25.4" y1="-38.1" x2="-25.4" y2="144.78" width="0.1524" layer="97"/>
-<text x="109.22" y="134.62" size="5.08" layer="97" font="vector" ratio="15">Rocky Switch Shield v0.4</text>
-<text x="109.22" y="124.46" size="2.54" layer="97" font="vector" ratio="15">2016-10-17
+<text x="99.06" y="134.62" size="5.08" layer="97" font="vector" ratio="15">Rocky Switch Shield v0.5</text>
+<text x="99.06" y="124.46" size="2.54" layer="97" font="vector" ratio="15">2016-10-24
 http://easytech.vn</text>
 <text x="-20.32" y="-35.56" size="2.54" layer="97" font="vector" ratio="15">Capacitive Buttons</text>
-<text x="121.92" y="45.72" size="2.286" layer="97" font="vector" ratio="10">TOG=Output type option pin
+<text x="101.6" y="45.72" size="2.286" layer="97" font="vector" ratio="10">TOG=Output type option pin
 High=Toggle mode (On/Off)
 Low=Momentary mode (ON pulse when touch)</text>
-<text x="121.92" y="30.48" size="2.286" layer="97" font="vector" ratio="10">AHLB=Output active high or low selection
+<text x="101.6" y="30.48" size="2.286" layer="97" font="vector" ratio="10">AHLB=Output active high or low selection
 High=Active low output
 Low=Active high output</text>
 </plain>
 <instances>
-<instance part="JP1" gate="A" x="134.62" y="101.6"/>
+<instance part="JP1" gate="A" x="114.3" y="101.6"/>
 <instance part="C1" gate="G$1" x="43.18" y="119.38"/>
 <instance part="U$1" gate="G$1" x="68.58" y="129.54"/>
 <instance part="GND1" gate="1" x="53.34" y="111.76"/>
 <instance part="GND3" gate="1" x="43.18" y="111.76"/>
-<instance part="SUPPLY1" gate="VDD" x="93.98" y="134.62"/>
-<instance part="C2" gate="G$1" x="93.98" y="121.92"/>
-<instance part="GND2" gate="1" x="93.98" y="111.76"/>
+<instance part="SUPPLY1" gate="VDD" x="83.82" y="134.62"/>
+<instance part="C2" gate="G$1" x="83.82" y="121.92"/>
+<instance part="GND2" gate="1" x="83.82" y="111.76"/>
 <instance part="C3" gate="G$1" x="43.18" y="81.28"/>
 <instance part="U$2" gate="G$1" x="68.58" y="88.9"/>
 <instance part="GND5" gate="1" x="53.34" y="73.66"/>
 <instance part="GND6" gate="1" x="43.18" y="73.66"/>
-<instance part="SUPPLY2" gate="VDD" x="93.98" y="93.98"/>
-<instance part="C4" gate="G$1" x="93.98" y="86.36"/>
-<instance part="GND7" gate="1" x="93.98" y="73.66"/>
+<instance part="SUPPLY2" gate="VDD" x="83.82" y="93.98"/>
+<instance part="C4" gate="G$1" x="83.82" y="86.36"/>
+<instance part="GND7" gate="1" x="83.82" y="73.66"/>
 <instance part="C5" gate="G$1" x="43.18" y="40.64"/>
 <instance part="U$3" gate="G$1" x="68.58" y="48.26"/>
 <instance part="GND9" gate="1" x="53.34" y="33.02"/>
 <instance part="GND10" gate="1" x="43.18" y="33.02"/>
-<instance part="SUPPLY3" gate="VDD" x="93.98" y="53.34"/>
-<instance part="C6" gate="G$1" x="93.98" y="45.72"/>
-<instance part="GND11" gate="1" x="93.98" y="33.02"/>
+<instance part="SUPPLY3" gate="VDD" x="83.82" y="53.34"/>
+<instance part="C6" gate="G$1" x="83.82" y="45.72"/>
+<instance part="GND11" gate="1" x="83.82" y="33.02"/>
 <instance part="C7" gate="G$1" x="43.18" y="0"/>
 <instance part="U$4" gate="G$1" x="68.58" y="7.62"/>
 <instance part="GND13" gate="1" x="53.34" y="-7.62"/>
 <instance part="GND14" gate="1" x="43.18" y="-7.62"/>
-<instance part="SUPPLY4" gate="VDD" x="93.98" y="12.7"/>
-<instance part="C8" gate="G$1" x="93.98" y="2.54"/>
-<instance part="GND15" gate="1" x="93.98" y="-7.62"/>
+<instance part="SUPPLY4" gate="VDD" x="83.82" y="12.7"/>
+<instance part="C8" gate="G$1" x="83.82" y="2.54"/>
+<instance part="GND15" gate="1" x="83.82" y="-7.62"/>
 <instance part="BTN1" gate="G$1" x="15.24" y="127"/>
 <instance part="BTN2" gate="G$1" x="17.78" y="86.36"/>
 <instance part="BTN3" gate="G$1" x="17.78" y="45.72"/>
@@ -6381,8 +6381,8 @@ Low=Active high output</text>
 <net name="GND" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="9"/>
-<wire x1="132.08" y1="96.52" x2="124.46" y2="96.52" width="0.1524" layer="91"/>
-<label x="119.38" y="96.52" size="1.778" layer="95"/>
+<wire x1="111.76" y1="96.52" x2="104.14" y2="96.52" width="0.1524" layer="91"/>
+<label x="99.06" y="96.52" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="VSS"/>
@@ -6397,7 +6397,7 @@ Low=Active high output</text>
 <segment>
 <pinref part="C2" gate="G$1" pin="2"/>
 <pinref part="GND2" gate="1" pin="GND"/>
-<wire x1="93.98" y1="116.84" x2="93.98" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="116.84" x2="83.82" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="VSS"/>
@@ -6412,7 +6412,7 @@ Low=Active high output</text>
 <segment>
 <pinref part="C4" gate="G$1" pin="2"/>
 <pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="93.98" y1="81.28" x2="93.98" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="81.28" x2="83.82" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$3" gate="G$1" pin="VSS"/>
@@ -6427,7 +6427,7 @@ Low=Active high output</text>
 <segment>
 <pinref part="C6" gate="G$1" pin="2"/>
 <pinref part="GND11" gate="1" pin="GND"/>
-<wire x1="93.98" y1="40.64" x2="93.98" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="40.64" x2="83.82" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$4" gate="G$1" pin="VSS"/>
@@ -6442,14 +6442,14 @@ Low=Active high output</text>
 <segment>
 <pinref part="C8" gate="G$1" pin="2"/>
 <pinref part="GND15" gate="1" pin="GND"/>
-<wire x1="93.98" y1="-2.54" x2="93.98" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="-2.54" x2="83.82" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="D1" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="2"/>
-<wire x1="139.7" y1="106.68" x2="147.32" y2="106.68" width="0.1524" layer="91"/>
-<label x="147.32" y="106.68" size="1.778" layer="95"/>
+<wire x1="119.38" y1="106.68" x2="127" y2="106.68" width="0.1524" layer="91"/>
+<label x="127" y="106.68" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="BTN1" gate="G$1" pin="C"/>
@@ -6460,8 +6460,8 @@ Low=Active high output</text>
 <net name="D0" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="7"/>
-<wire x1="132.08" y1="99.06" x2="124.46" y2="99.06" width="0.1524" layer="91"/>
-<label x="119.38" y="99.06" size="1.778" layer="95"/>
+<wire x1="111.76" y1="99.06" x2="104.14" y2="99.06" width="0.1524" layer="91"/>
+<label x="99.06" y="99.06" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$4" gate="G$1" pin="Q"/>
@@ -6472,8 +6472,8 @@ Low=Active high output</text>
 <net name="D5" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="5"/>
-<wire x1="132.08" y1="101.6" x2="124.46" y2="101.6" width="0.1524" layer="91"/>
-<label x="119.38" y="101.6" size="1.778" layer="95"/>
+<wire x1="111.76" y1="101.6" x2="104.14" y2="101.6" width="0.1524" layer="91"/>
+<label x="99.06" y="101.6" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$3" gate="G$1" pin="Q"/>
@@ -6484,8 +6484,8 @@ Low=Active high output</text>
 <net name="D6" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="3"/>
-<wire x1="132.08" y1="104.14" x2="124.46" y2="104.14" width="0.1524" layer="91"/>
-<label x="119.38" y="104.14" size="1.778" layer="95"/>
+<wire x1="111.76" y1="104.14" x2="104.14" y2="104.14" width="0.1524" layer="91"/>
+<label x="99.06" y="104.14" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="Q"/>
@@ -6496,8 +6496,8 @@ Low=Active high output</text>
 <net name="D7" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="1"/>
-<wire x1="132.08" y1="106.68" x2="124.46" y2="106.68" width="0.1524" layer="91"/>
-<label x="119.38" y="106.68" size="1.778" layer="95"/>
+<wire x1="111.76" y1="106.68" x2="104.14" y2="106.68" width="0.1524" layer="91"/>
+<label x="99.06" y="106.68" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="Q"/>
@@ -6508,8 +6508,8 @@ Low=Active high output</text>
 <net name="D2" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="4"/>
-<wire x1="139.7" y1="104.14" x2="147.32" y2="104.14" width="0.1524" layer="91"/>
-<label x="147.32" y="104.14" size="1.778" layer="95"/>
+<wire x1="119.38" y1="104.14" x2="127" y2="104.14" width="0.1524" layer="91"/>
+<label x="127" y="104.14" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="BTN2" gate="G$1" pin="C"/>
@@ -6520,8 +6520,8 @@ Low=Active high output</text>
 <net name="D3" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="6"/>
-<wire x1="139.7" y1="101.6" x2="147.32" y2="101.6" width="0.1524" layer="91"/>
-<label x="147.32" y="101.6" size="1.778" layer="95"/>
+<wire x1="119.38" y1="101.6" x2="127" y2="101.6" width="0.1524" layer="91"/>
+<label x="127" y="101.6" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="BTN3" gate="G$1" pin="C"/>
@@ -6532,8 +6532,8 @@ Low=Active high output</text>
 <net name="D4" class="0">
 <segment>
 <pinref part="JP1" gate="A" pin="8"/>
-<wire x1="139.7" y1="99.06" x2="147.32" y2="99.06" width="0.1524" layer="91"/>
-<label x="147.32" y="99.06" size="1.778" layer="95"/>
+<wire x1="119.38" y1="99.06" x2="127" y2="99.06" width="0.1524" layer="91"/>
+<label x="127" y="99.06" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="BTN4" gate="G$1" pin="C"/>
@@ -6554,38 +6554,38 @@ Low=Active high output</text>
 <net name="VDD" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="VDD"/>
-<wire x1="78.74" y1="129.54" x2="93.98" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="129.54" x2="93.98" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="129.54" x2="83.82" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="129.54" x2="83.82" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="SUPPLY1" gate="VDD" pin="VDD"/>
 <pinref part="C2" gate="G$1" pin="1"/>
-<wire x1="93.98" y1="129.54" x2="93.98" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="129.54" x2="83.82" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP1" gate="A" pin="10"/>
-<wire x1="139.7" y1="96.52" x2="147.32" y2="96.52" width="0.1524" layer="91"/>
-<label x="147.32" y="96.52" size="1.778" layer="95"/>
+<wire x1="119.38" y1="96.52" x2="127" y2="96.52" width="0.1524" layer="91"/>
+<label x="127" y="96.52" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="VDD"/>
-<wire x1="78.74" y1="88.9" x2="93.98" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="88.9" x2="93.98" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="88.9" x2="83.82" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="88.9" x2="83.82" y2="93.98" width="0.1524" layer="91"/>
 <pinref part="SUPPLY2" gate="VDD" pin="VDD"/>
 <pinref part="C4" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="U$3" gate="G$1" pin="VDD"/>
-<wire x1="78.74" y1="48.26" x2="93.98" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="48.26" x2="93.98" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="48.26" x2="83.82" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="48.26" x2="83.82" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="SUPPLY3" gate="VDD" pin="VDD"/>
 <pinref part="C6" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="U$4" gate="G$1" pin="VDD"/>
-<wire x1="78.74" y1="7.62" x2="93.98" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="7.62" x2="93.98" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="7.62" x2="83.82" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="7.62" x2="83.82" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="SUPPLY4" gate="VDD" pin="VDD"/>
 <pinref part="C8" gate="G$1" pin="1"/>
-<wire x1="93.98" y1="7.62" x2="93.98" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="7.62" x2="83.82" y2="5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R1" gate="G$1" pin="1"/>
