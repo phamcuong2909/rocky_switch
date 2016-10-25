@@ -6325,7 +6325,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="203.2" y1="144.78" x2="203.2" y2="-38.1" width="0.1524" layer="97"/>
 <wire x1="203.2" y1="-38.1" x2="-25.4" y2="-38.1" width="0.1524" layer="97"/>
 <wire x1="-25.4" y1="-38.1" x2="-25.4" y2="144.78" width="0.1524" layer="97"/>
-<text x="99.06" y="134.62" size="5.08" layer="97" font="vector" ratio="15">Rocky Switch Shield v0.5</text>
+<text x="99.06" y="134.62" size="5.08" layer="97" font="vector" ratio="15">Rocky Switch Shield v1.0</text>
 <text x="99.06" y="124.46" size="2.54" layer="97" font="vector" ratio="15">2016-10-24
 http://easytech.vn</text>
 <text x="-20.32" y="-35.56" size="2.54" layer="97" font="vector" ratio="15">Capacitive Buttons</text>
