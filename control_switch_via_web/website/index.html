@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang='en' > 
+<head> 
+    <meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=0'> 
+    <title>Smart Home Of Bao Quoc</title> 
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.slim.min.js' integrity='sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=' crossorigin='anonymous'></script> 
+    <!-- Latest compiled and minified CSS --> 
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'> 
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'> 
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker-standalone.min.css' integrity='sha256-+CTjwODD2mYru0lguUnWuJ0c6zYdassaASkIFVtD5mY=' crossorigin='anonymous' /> 
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'></script> 
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js' integrity='sha256-4PIvl58L9q7iwjT654TQJM+C/acEyoG738iL8B8nhXg=' crossorigin='anonymous'></script> 
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js' integrity='sha256-I8vGZkA2jL0PptxyJBvewDVqNXcgIhcgeqi+GD/aw34=' crossorigin='anonymous'></script> 
+    <script type='text/javascript'> 
+        $(function () { 
+            $('#timePicker1').datetimepicker({ 
+                format: 'LT' 
+            }); 
+            $('#timePicker2').datetimepicker({ 
+                format: 'LT' 
+            }); 
+            $('#timePicker3').datetimepicker({ 
+                format: 'LT' 
+            }); 
+            $('#timePicker4').datetimepicker({ 
+                format: 'LT' 
+            }); 
+            $('#timePicker5').datetimepicker({ 
+                format: 'LT' 
+            }); 
+            $('#timePicker6').datetimepicker({ 
+                format: 'LT' 
+            }); 
+            $('#timePicker7').datetimepicker({ 
+                format: 'LT' 
+            }); 
+            $('#timePicker8').datetimepicker({ 
+                format: 'LT' 
+            }); 
+        }); 
+    </script> 
+</head> 
+<body> 
+    <div class='container col-xs-6 col-xs-offset-3'> 
+        <div class='page-header' align='center'> 
+          <h1>SMART HOME OF BAO QUOC</h1> 
+          <h3>21:30 <small>23/11/2016</small></h3> 
+          <h4>192.168.222.1</h4> 
+        </div> 
+        <form method='post'> 
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-1">                  
+                </div>
+                <div class="col-sm-1">
+                  Status
+                </div>
+                <div class="col-sm-2">
+                  Timer
+                </div>
+                <div class="col-sm-2">
+                  ON
+                </div>
+                <div class="col-sm-2">
+                  OFF
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-sm-1">
+                    Switch 1
+                </div>
+                <div class="col-sm-1">
+                  <button type="button" class="btn btn-success">On</button>
+                </div>
+                <div class="col-sm-2">
+                  <input type="checkbox"> Enabled 
+                  <br><input type="checkbox"> Repeat
+                </div>
+                <div class="col-sm-2">
+                  <div class='input-group date' id='timePicker1'> 
+                        <input type='text' class='form-control' name='time' value='01:30 PM' /> 
+                        <span class='input-group-addon'> 
+                            <span class='glyphicon glyphicon-time'></span> 
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class='input-group date' id='timePicker2'> 
+                        <input type='text' class='form-control' name='time' value='11:45 PM'  /> 
+                        <span class='input-group-addon'> 
+                            <span class='glyphicon glyphicon-time'></span> 
+                        </span> 
+                    </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-sm-1">
+                    Switch 2
+                </div>
+                <div class="col-sm-1">
+                  <button type="button" class="btn btn-danger">Off</button>
+                </div>
+                <div class="col-sm-2">
+                  <input type="checkbox"> Enabled 
+                  <br><input type="checkbox"> Repeat
+                </div>
+                <div class="col-sm-2">
+                  <div class='input-group date' id='timePicker3'> 
+                        <input type='text' class='form-control' name='time' value='05:15 AM' /> 
+                        <span class='input-group-addon'> 
+                            <span class='glyphicon glyphicon-time'></span> 
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class='input-group date' id='timePicker4'> 
+                        <input type='text' class='form-control' name='time' value='01:45 PM' /> 
+                        <span class='input-group-addon'> 
+                            <span class='glyphicon glyphicon-time'></span> 
+                        </span> 
+                    </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-sm-1">
+                    Switch 3
+                </div>
+                <div class="col-sm-1">
+                  <button type="button" class="btn btn-success">On</button>
+                </div>
+                <div class="col-sm-2">
+                  <input type="checkbox"> Enabled 
+                  <br><input type="checkbox"> Repeat
+                </div>
+                <div class="col-sm-2">
+                  <div class='input-group date' id='timePicker5'> 
+                        <input type='text' class='form-control' name='time' value='07:05 PM' /> 
+                        <span class='input-group-addon'> 
+                            <span class='glyphicon glyphicon-time'></span> 
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class='input-group date' id='timePicker6'> 
+                        <input type='text' class='form-control' value='08:45 PM' name='time' /> 
+                        <span class='input-group-addon'> 
+                            <span class='glyphicon glyphicon-time'></span> 
+                        </span> 
+                    </div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-sm-1">
+                    Switch 4
+                </div>
+                <div class="col-sm-1">
+                  <button type="button" class="btn btn-success">On</button>
+                </div>
+                <div class="col-sm-2">
+                  <input type="checkbox"> Enabled 
+                  <br><input type="checkbox"> Repeat
+                </div>
+                <div class="col-sm-2">
+                  <div class='input-group date' id='timePicker7'> 
+                        <input type='text' class='form-control' name='time' value='01:05 PM' /> 
+                        <span class='input-group-addon'> 
+                            <span class='glyphicon glyphicon-time'></span> 
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class='input-group date' id='timePicker8'> 
+                        <input type='text' class='form-control' name='time' value='11:45 PM' /> 
+                        <span class='input-group-addon'> 
+                            <span class='glyphicon glyphicon-time'></span> 
+                        </span> 
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" align='center'>
+                <button type='submit' class='btn btn-primary'>Save</button> 
+            </div>
+        </form> 
+    </div> 
+</body> 
+</html> 
