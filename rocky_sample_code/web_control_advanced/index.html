@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang='en' > 
+<head> 
+    <meta name = 'viewport' content = 'width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=0'> 
+    <title>Smart Home Of Bao Quoc</title> 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous'></script> 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.min.js' integrity='sha256-GLClIJWIFuZzDwfYm61IwyRLzobEmISkmMvJ76zDp1s=' crossorigin='anonymous'></script>
+    <!-- Latest compiled and minified CSS --> 
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'> 
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'> 
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker-standalone.min.css' integrity='sha256-+CTjwODD2mYru0lguUnWuJ0c6zYdassaASkIFVtD5mY=' crossorigin='anonymous' /> 
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'></script> 
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js' integrity='sha256-4PIvl58L9q7iwjT654TQJM+C/acEyoG738iL8B8nhXg=' crossorigin='anonymous'></script> 
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js' integrity='sha256-I8vGZkA2jL0PptxyJBvewDVqNXcgIhcgeqi+GD/aw34=' crossorigin='anonymous'></script> 
+    <script type='text/javascript'> 
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope, $http, $interval) {
+            $scope.switches = [{status: 0, timer: 0, repeat: 0, on: '06:00', onHour: 6, onMin: 0, off: '18:00', offHour:18, offMin: 0},
+                {status: 0, timer: 0, repeat: 0, on: '06:00', onHour: 6, onMin: 0, off: '18:00', offHour:18, offMin: 0},
+                {status: 0, timer: 0, repeat: 0, on: '06:00', onHour: 6, onMin: 0, off: '18:00', offHour:18, offMin: 0},
+                {status: 0, timer: 0, repeat: 0, on: '06:00', onHour: 6, onMin: 0, off: '18:00', offHour:18, offMin: 0}];
+                
+            $scope.time = moment().format('HH:mm');
+            $scope.date = moment().format('DD/MM/YYYY');
+            
+            $scope.loggedin = false;
+                
+            $http.get('/status').then(function(response) {
+                console.log(response.data);
+                for(var i=0; i<response.data.length; i++) {
+                    $scope.switches[i].status = response.data[i].status;
+                    $scope.switches[i].timer = response.data[i].timer;
+                    $scope.switches[i].repeat = response.data[i].repeat;
+                    $scope.switches[i].on = response.data[i].on;
+                    $scope.switches[i].off = response.data[i].off;
+                    $scope.ip = response.data[i].ip;
+                }
+            });
+            
+            $interval(function() {
+                $scope.time = moment().format('HH:mm');
+                $scope.date = moment().format('DD/MM/YYYY');
+                $http.get('/status').then(function(response) {
+                    console.log(response.data);
+                    for(var i=0; i<response.data.length; i++) {
+                        $scope.switches[i].status = response.data[i].status;
+                    }
+                });
+            }, 5000);
+            
+            $scope.save = function() {
+                for(var i=0; i<$scope.switches.length; i++) {
+                    $scope.switches[i].onHour = parseInt($scope.switches[i].on.split(':')[0]);
+                    $scope.switches[i].onMin = parseInt($scope.switches[i].on.split(':')[1]);
+                    $scope.switches[i].offHour = parseInt($scope.switches[i].off.split(':')[0]);
+                    $scope.switches[i].offMin = parseInt($scope.switches[i].off.split(':')[1]);
+                }
+                console.log($scope.switches);
+                $http({
+                    url: '/save',
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    data: $scope.switches
+                }).then(function(data) {
+                    console.log(data);
+                });
+            };
+            
+            $scope.changeStatus = function(index) {
+                var new_state = 1 - $scope.switches[index].status;
+                $scope.switches[index].status = new_state;
+                var params = {
+                    relayNo: index,
+                    action: new_state
+                };
+                $http.get('/control', 
+                    {
+                        params: params
+                    }).then(function(data) {
+                        console.log(data);
+                    });
+            };
+            
+            $scope.login = function() {
+                if ($scope.username == 'admin' && $scope.password == 'admin')
+                    $scope.loggedin = true;
+                else 
+                    alert('Invalid username or password');
+                    
+            };
+        });
+        
+        $(function () { 
+            /*$('[id^=timePicker').datetimepicker({ 
+                format: 'HH:mm' 
+            });*/
+        }); 
+    </script> 
+</head> 
+<body ng-app='myApp' ng-controller='myCtrl'> 
+    <div class='container col-xs-6 col-xs-offset-3'> 
+        <div class='page-header' align='center'> 
+          <h1>SMART HOME OF BAO QUOC</h1> 
+          <div class='container'>
+              <div class='row'>
+                <div class='col-sm-2'>
+                    <button class='btn btn-lg btn-primary' ng-click='login()' ng-show='!loggedin' >Login</button>
+                    <input type='text' class='form-control' name='username' ng-model='username' placeholder='Username' required='' autofocus='' ng-show='!loggedin' />
+                    <input type='password' class='form-control' name='password' ng-model='password' placeholder='Password' required='' ng-show='!loggedin'/>
+                </div>
+                <div class='col-sm-3'>
+                  <h3>{{time}} <small> {{date}}</small></h3> 
+                  <h4>{{ip}}</h4> 
+                </div>
+                <div class='col-sm-3'>
+                </div>
+              </div>
+          </div>
+        </div> 
+        <!--<form method='post'> -->
+            <div class='container'>
+              <div class='row'>
+                <div class='col-sm-1'>                  
+                </div>
+                <div class='col-sm-1'>
+                  Status
+                </div>
+                <div class='col-sm-2'>
+                  Timer
+                </div>
+                <div class='col-sm-2'>
+                  ON
+                </div>
+                <div class='col-sm-2'>
+                  OFF
+                </div>
+              </div>
+              
+              <div class='row' ng-repeat='switch in switches track by $index'>
+                <div class='col-xs-1'>
+                    Switch {{$index+1}}
+                </div>
+                <div class='col-xs-1'>
+                  <button type='button' class='btn btn-success' ng-if='switch.status' ng-click='changeStatus($index)' ng-disabled='!loggedin'>On</button>
+                  <button type='button' class='btn btn-danger' ng-if='!switch.status' ng-click='changeStatus($index)' ng-disabled='!loggedin'>Off</button>
+                </div>
+                <div class='col-xs-2'>
+                  <input type='checkbox' ng-model='switch.timer' ng-true-value='1' ng-false-value='0' ng-disabled='!loggedin'> Enabled 
+                  <br><input type='checkbox' ng-model='switch.repeat' ng-true-value='1' ng-false-value='0' ng-disabled='!loggedin'> Repeat
+                </div>
+                <div class='col-xs-2'>
+                  <div class='input-group date' id='timePicker{{$index+1}}1'> 
+                        <input type='text' class='form-control' name='time' ng-model='switch.on' ng-disabled='!loggedin' /> 
+                        <!--<span class='input-group-addon'> 
+                            <span class='glyphicon glyphicon-time'></span> 
+                        </span>--> 
+                    </div>
+                </div>
+                <div class='col-xs-2'>
+                    <div class='input-group date' id='timePicker{{$index+1}}2'> 
+                        <input type='text' class='form-control' name='time' ng-model='switch.off' ng-disabled='!loggedin'  /> 
+                        <!--<span class='input-group-addon'> 
+                            <span class='glyphicon glyphicon-time'></span> 
+                        </span>--> 
+                    </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class='row' align='center'>
+                <button ng-click='save()' class='btn btn-primary'>Save</button> 
+            </div>
+        <!--</form> -->
+    </div> 
+</body> 
+</html> 
